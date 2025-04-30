@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
-const PORT = 3000; // Укажите порт для сервера
+
+// Используем порт из переменной окружения или 3000 по умолчанию
+const PORT = process.env.PORT || 3000;
 
 // Маршрут для перенаправления
 app.get("/product_redirect", (req, res) => {
   const productId = req.query.productId; // Получаем productId из параметров запроса
-  
+
   if (!productId) {
     // Если productId не указан, возвращаем ошибку
     return res.status(400).send("Product ID is required.");
