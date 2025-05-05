@@ -3,11 +3,12 @@ const admin = require("firebase-admin");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-// Замените на настоящий путь к вашему JSON ключу
-const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+const serviceAccount = require("./serviceAccountKey.json");
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
+  // databaseURL: "https://shopcurs-5dbd4.firebaseio.com" // не обязательно для FCM
 });
 
 const app = express();
