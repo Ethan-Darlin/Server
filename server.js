@@ -3,8 +3,7 @@ const admin = require("firebase-admin");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-// Замените на настоящий путь к вашему JSON ключу
-const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+const serviceAccount = require("./serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
